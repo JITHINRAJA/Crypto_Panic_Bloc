@@ -23,7 +23,7 @@ class CryptoNewsDetails extends StatelessWidget {
                 ),
                 Text(
                   state.results[index].domain,
-                  style: TextStyle(color: Colors.yellow),
+                  style: TextStyle( color: Colors.yellow),
                 )
               ],
             )
