@@ -21,7 +21,7 @@ class HomeMainView extends StatelessWidget {
                 SizedBox(width: 10),
                 IconButton(
                   icon: Icon(
-                    Icons.exit_to_app,
+                    Icons.logout,
                   ),
                   onPressed: () =>
                       BlocProvider.of<AuthenticationBloc>(context).add(
@@ -44,9 +44,13 @@ class HomeMainView extends StatelessWidget {
               if (state is AuthenticationInitial) {
                 BlocProvider.of<AuthenticationBloc>(context)
                     .add(AuthenticationStarted());
-                return CircularProgressIndicator();
+                return CircularProgressIndicator(
+                  color: Colors.red,
+                );
               } else if (state is AuthenticationLoading) {
-                return CircularProgressIndicator();
+                return CircularProgressIndicator(
+                  color: Colors.red,
+                );
               } else if (state is AuthenticationSuccess) {
                 return CryptoNews();
               }

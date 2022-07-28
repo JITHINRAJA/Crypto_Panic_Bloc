@@ -23,11 +23,16 @@ class CryptoNews extends StatelessWidget {
             builder: (context, state) {
               if (state is CryptoLoadingState) {
                 return Center(
-                  child: CircularProgressIndicator(),
+                  child: CircularProgressIndicator(
+                    color: Colors.red,
+                  ),
                 );
               }
               if (state is CryptoLoadedState) {
                 return RefreshIndicator(
+                  color: Colors.red,
+
+                  ///Implemet Refresh
                   onRefresh: () async {
                     context.read<CryptoBloc>().add(LoadApiEvent());
                   },
@@ -39,6 +44,8 @@ class CryptoNews extends StatelessWidget {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
+
+                                    ///Navigate to News Details Screen
                                     builder: (context) => CryptoNewsDetails(
                                         index: index, state: state)));
                           },
@@ -67,6 +74,7 @@ class CryptoNews extends StatelessWidget {
                                           style: TextStyle(color: Colors.grey),
                                           recognizer: TapGestureRecognizer()
                                             ..onTap = () {
+                                              ///launch to the domain
                                               launchUrl(Uri.parse(
                                                   'https://${state.results![index].source?.domain}'));
                                             })

@@ -81,7 +81,10 @@ class LoginMainView extends StatelessWidget {
                     ),
                   );
                 } else if (state is AuthenticationLoading) {
-                  return Center(child: CircularProgressIndicator());
+                  return Center(
+                      child: CircularProgressIndicator(
+                    color: Colors.red,
+                  ));
                 }
                 return Center(
                     child: Text('Undefined state : ${state.runtimeType}'));
