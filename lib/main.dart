@@ -3,13 +3,14 @@ import 'package:crypto_with_bloc/auth/data/providers/authentication_firebase_pro
 import 'package:crypto_with_bloc/auth/data/providers/google_sign_in_provider.dart';
 import 'package:crypto_with_bloc/auth/data/repositories/authenticaiton_repository.dart';
 import 'package:crypto_with_bloc/home/repositories/crypto_repository.dart';
-import 'package:crypto_with_bloc/home/views/home_main_view.dart';
+import 'package:crypto_with_bloc/home/views/home_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
+///Initialize Firebase
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();

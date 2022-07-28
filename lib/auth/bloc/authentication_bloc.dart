@@ -19,15 +19,13 @@ class AuthenticationBloc
 
   @override
 
-  ///for close the stream
+  ///close the stream to avoid memory leake issue
   Future<void> close() {
     authStreamSub?.cancel();
     return super.close();
   }
 
   @override
-
-  ///go through event states
   Stream<AuthenticationState> mapEventToState(
     AuthenticationEvent event,
   ) async* {

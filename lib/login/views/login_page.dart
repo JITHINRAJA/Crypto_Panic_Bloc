@@ -1,10 +1,10 @@
 import 'package:crypto_with_bloc/auth/bloc/authentication_bloc.dart';
-import 'package:crypto_with_bloc/home/views/home_main_view.dart';
+import 'package:crypto_with_bloc/home/views/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:crypto_with_bloc/home/repositories/crypto_repository.dart';
 
-class LoginMainView extends StatelessWidget {
+class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(

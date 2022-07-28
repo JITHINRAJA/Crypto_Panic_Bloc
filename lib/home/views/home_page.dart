@@ -1,6 +1,6 @@
 import 'package:crypto_with_bloc/auth/bloc/authentication_bloc.dart';
 import 'package:crypto_with_bloc/home/views/cryptonews.dart';
-import 'package:crypto_with_bloc/login/views/login_main_view.dart';
+import 'package:crypto_with_bloc/login/views/login_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -42,8 +42,9 @@ class HomeMainView extends StatelessWidget {
           child: BlocConsumer<AuthenticationBloc, AuthenticationState>(
             listener: (context, state) {
               if (state is AuthenticationFailiure) {
-                Navigator.pushReplacement(context,
-                    MaterialPageRoute(builder: (_) => LoginMainView()));
+                ///if authentication failed navigate to login
+                Navigator.pushReplacement(
+                    context, MaterialPageRoute(builder: (_) => LoginPage()));
               }
             },
             builder: (context, state) {
@@ -58,6 +59,7 @@ class HomeMainView extends StatelessWidget {
                   color: Colors.red,
                 );
               } else if (state is AuthenticationSuccess) {
+                ///if authentication success the news page display
                 return CryptoNews();
               }
               return Text('Undefined state : ${state.runtimeType}');
