@@ -8,12 +8,16 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class HomeMainView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    ///assign current user from firebase to user
     final user = FirebaseAuth.instance.currentUser;
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.black,
-          title: Text('Crypto_Panic'),
+          title: Text(
+            'Crypto_Panic',
+            style: TextStyle(fontFamily: 'Open_Sans'),
+          ),
           actions: [
             Row(
               children: [
@@ -24,6 +28,8 @@ class HomeMainView extends StatelessWidget {
                     Icons.logout,
                   ),
                   onPressed: () =>
+
+                      ///Exit from user
                       BlocProvider.of<AuthenticationBloc>(context).add(
                     AuthenticationExited(),
                   ),

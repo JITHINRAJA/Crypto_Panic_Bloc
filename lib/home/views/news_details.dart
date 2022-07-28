@@ -10,11 +10,15 @@ class CryptoNewsDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ///Assign current user from firebase to user
     final user = FirebaseAuth.instance.currentUser;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
-        title: Text('News Details'),
+        title: Text(
+          'News Details',
+          style: TextStyle(fontFamily: 'Open_Sans'),
+        ),
         actions: [
           Row(
             children: [
@@ -25,6 +29,8 @@ class CryptoNewsDetails extends StatelessWidget {
                   Icons.logout,
                 ),
                 onPressed: () =>
+
+                    ///Exit from user
                     BlocProvider.of<AuthenticationBloc>(context).add(
                   AuthenticationExited(),
                 ),
@@ -41,11 +47,12 @@ class CryptoNewsDetails extends StatelessWidget {
               children: [
                 Text(
                   state.results[index].title,
-                  style: TextStyle(fontSize: 25),
+                  style: TextStyle(fontSize: 25, fontFamily: 'Open_Sans'),
                 ),
                 Text(
                   state.results[index].domain,
-                  style: TextStyle(color: Colors.yellow),
+                  style:
+                      TextStyle(color: Colors.yellow, fontFamily: 'Open_Sans'),
                 )
               ],
             )

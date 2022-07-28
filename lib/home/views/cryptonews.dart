@@ -13,6 +13,8 @@ class CryptoNews extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
+
+        ///LoadApi events
         create: (context) => CryptoBloc(
               RepositoryProvider.of<CryptoRepository>(context),
             )..add(LoadApiEvent()),
@@ -71,7 +73,9 @@ class CryptoNews extends StatelessWidget {
                                       TextSpan(
                                           text:
                                               '🔗${state.results![index].source?.domain}',
-                                          style: TextStyle(color: Colors.grey),
+                                          style: TextStyle(
+                                              color: Colors.grey,
+                                              fontFamily: 'Open_Sans'),
                                           recognizer: TapGestureRecognizer()
                                             ..onTap = () {
                                               ///launch to the domain
@@ -88,7 +92,8 @@ class CryptoNews extends StatelessWidget {
                                       '${state.results![index].currencies?[0].code ?? ''}',
                                       style: TextStyle(
                                           color: Colors.blue,
-                                          fontWeight: FontWeight.w700),
+                                          fontWeight: FontWeight.w700,
+                                          fontFamily: 'Open_Sans'),
                                     ),
                                   )
                                 ],

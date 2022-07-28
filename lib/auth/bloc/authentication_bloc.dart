@@ -18,12 +18,16 @@ class AuthenticationBloc
   StreamSubscription<AuthenticationDetail>? authStreamSub;
 
   @override
+
+  ///for close the stream
   Future<void> close() {
     authStreamSub?.cancel();
     return super.close();
   }
 
   @override
+
+  ///go through event states
   Stream<AuthenticationState> mapEventToState(
     AuthenticationEvent event,
   ) async* {
