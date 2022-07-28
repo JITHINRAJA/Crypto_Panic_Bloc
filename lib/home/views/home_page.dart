@@ -21,6 +21,7 @@ class HomeMainView extends StatelessWidget {
           actions: [
             Row(
               children: [
+                ///Display the username from user
                 Text('${user?.displayName}'),
                 SizedBox(width: 10),
                 IconButton(
