@@ -9,6 +9,7 @@ abstract class AuthenticationEvent extends Equatable {
 
 class AuthenticationStarted extends AuthenticationEvent {}
 
+///Authentication event change occure when logout &login
 class AuthenticationStateChanged extends AuthenticationEvent {
   final AuthenticationDetail authenticationDetail;
   AuthenticationStateChanged({
@@ -18,6 +19,8 @@ class AuthenticationStateChanged extends AuthenticationEvent {
   List<Object> get props => [authenticationDetail];
 }
 
+///login event
 class AuthenticationGoogleStarted extends AuthenticationEvent {}
 
+///logout event
 class AuthenticationExited extends AuthenticationEvent {}

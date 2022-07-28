@@ -13,11 +13,13 @@ class AuthenticationRepository {
         _authenticationFirebaseProvider = authenticationFirebaseProvider;
 
   Stream<AuthenticationDetail> getAuthDetailStream() {
+    ///map the authentication details in to our authentication details
     return _authenticationFirebaseProvider.getAuthStates().map((user) {
       return _getAuthCredentialFromFirebaseUser(user: user);
     });
   }
 
+  ///Authenticate with google
   Future<AuthenticationDetail> authenticateWithGoogle() async {
     User? user = await _authenticationFirebaseProvider.login(
         credential: await _googleSignInProvider.login());
