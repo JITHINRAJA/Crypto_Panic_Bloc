@@ -23,7 +23,7 @@ class CryptoNews extends StatelessWidget {
           padding: const EdgeInsets.all(16.0),
           child: BlocBuilder<CryptoBloc, CryptoState>(
             builder: (context, state) {
-              Future.delayed(const Duration(seconds: 1), () {
+              Future.delayed(const Duration(seconds: 60), () {
                 context.read<CryptoBloc>().add(LoadApiEvent());
               });
               if (state is CryptoLoadingState) {
