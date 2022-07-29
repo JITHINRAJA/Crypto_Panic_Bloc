@@ -43,7 +43,7 @@ class HomeMainView extends StatelessWidget {
           child: BlocConsumer<AuthenticationBloc, AuthenticationState>(
             listener: (context, state) {
               if (state is AuthenticationFailiure) {
-                ///if authentication failed navigate to login
+                ///if authentication failed navigate to login page again
                 Navigator.pushReplacement(
                     context, MaterialPageRoute(builder: (_) => LoginPage()));
               }
