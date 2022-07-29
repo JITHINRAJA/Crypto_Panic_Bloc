@@ -5,6 +5,7 @@ class CryptoRepository {
   final url =
       "https://cryptopanic.com/api/v1/posts/?auth_token=d36debcda4112c4dc7a1466d45ea5d48efec527c&public=true";
 
+  ///get news from the url provided
   Future<Crypto> getNews() async {
     final response = await get(Uri.parse(url));
     print(response.body);
