@@ -1,5 +1,5 @@
-import 'package:crypto_with_bloc/auth/data/providers/authentication_firebase_provider.dart';
-import 'package:crypto_with_bloc/auth/data/providers/google_sign_in_provider.dart';
+import 'package:crypto_with_bloc/auth/data/providers/firebase_provider_authentication.dart';
+import 'package:crypto_with_bloc/auth/data/providers/google_provider.dart';
 import 'package:crypto_with_bloc/auth/models/authentication_detail.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 

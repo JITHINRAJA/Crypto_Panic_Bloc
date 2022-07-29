@@ -23,6 +23,7 @@ class CryptoNews extends StatelessWidget {
           padding: const EdgeInsets.all(16.0),
           child: BlocBuilder<CryptoBloc, CryptoState>(
             builder: (context, state) {
+              ///auto refresh for 60 seconds
               Future.delayed(const Duration(seconds: 60), () {
                 context.read<CryptoBloc>().add(LoadApiEvent());
               });

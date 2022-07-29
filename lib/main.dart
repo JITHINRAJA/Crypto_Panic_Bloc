@@ -1,6 +1,6 @@
 import 'package:crypto_with_bloc/auth/bloc/authentication_bloc.dart';
-import 'package:crypto_with_bloc/auth/data/providers/authentication_firebase_provider.dart';
-import 'package:crypto_with_bloc/auth/data/providers/google_sign_in_provider.dart';
+import 'package:crypto_with_bloc/auth/data/providers/firebase_provider_authentication.dart';
+import 'package:crypto_with_bloc/auth/data/providers/google_provider.dart';
 import 'package:crypto_with_bloc/auth/data/repositories/authenticaiton_repository.dart';
 import 'package:crypto_with_bloc/home/repositories/crypto_repository.dart';
 import 'package:crypto_with_bloc/home/views/home_page.dart';
@@ -44,7 +44,6 @@ class MyApp extends StatelessWidget {
             RepositoryProvider(
               create: (context) => CryptoRepository(),
             ),
-            // RepositoryProvider(create: (context)=>DeleteReminderService())
           ],
         ),
       ),

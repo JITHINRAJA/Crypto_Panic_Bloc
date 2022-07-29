@@ -31,7 +31,7 @@ class AuthenticationBloc
   ) async* {
     if (event is AuthenticationStarted) {
       try {
-        yield AuthenticationLoading();
+        emit(AuthenticationLoading());
         authStreamSub = _authenticationRepository
             .getAuthDetailStream()
             .listen((authDetail) {
@@ -40,42 +40,42 @@ class AuthenticationBloc
       } catch (error) {
         print(
             'Error occured while fetching authentication detail : ${error.toString()}');
-        yield AuthenticationFailiure(
-            message: 'Error occrued while fetching auth detail');
+        emit(AuthenticationFailiure(
+            message: 'Error occrued while fetching auth detail'));
       }
     } else if (event is AuthenticationStateChanged) {
       if (event.authenticationDetail.isValid!) {
-        yield AuthenticationSuccess(
-            authenticationDetail: event.authenticationDetail);
+        emit(AuthenticationSuccess(
+            authenticationDetail: event.authenticationDetail));
       } else {
-        yield AuthenticationFailiure(message: 'User has logged out');
+        emit(AuthenticationFailiure(message: 'User has logged out'));
       }
     } else if (event is AuthenticationGoogleStarted) {
       try {
-        yield AuthenticationLoading();
+        emit(AuthenticationLoading());
         AuthenticationDetail authenticationDetail =
             await _authenticationRepository.authenticateWithGoogle();
 
         if (authenticationDetail.isValid!) {
-          yield AuthenticationSuccess(
-              authenticationDetail: authenticationDetail);
+          emit(AuthenticationSuccess(
+              authenticationDetail: authenticationDetail));
         } else {
-          yield AuthenticationFailiure(message: 'User detail not found.');
+          emit(AuthenticationFailiure(message: 'User detail not found.'));
         }
       } catch (error) {
         print('Error occured while login with Google ${error.toString()}');
-        yield AuthenticationFailiure(
+        emit(AuthenticationFailiure(
           message: 'Unable to login with Google. Try again.',
-        );
+        ));
       }
     } else if (event is AuthenticationExited) {
       try {
-        yield AuthenticationLoading();
+        emit(AuthenticationLoading());
         await _authenticationRepository.unAuthenticate();
       } catch (error) {
         print('Error occured while logging out. : ${error.toString()}');
-        yield AuthenticationFailiure(
-            message: 'Unable to logout. Please try again.');
+        emit(AuthenticationFailiure(
+            message: 'Unable to logout. Please try again.'));
       }
     }
   }
